@@ -1,0 +1,27 @@
+# Databricks notebook source
+from pyspark.sql import *
+
+# COMMAND ----------
+
+jdbcUsername = "kaix"
+jdbcPassword = "Sp@rtsbet10036"
+jdbcHostname = "pr-cdp-redshift-cluster-redshiftcluster-1my0fjq6hipen.ce7njna1uchr.ap-southeast-2.redshift.amazonaws.com"
+jdbcPort = 5439
+jdbcDatabase = "cdp"
+jdbcUrl='jdbc:redshift://{1}:${2}/${3}?user=${4}&password=${5}".format(jdbcHostname, jdbcPort, jdbcDatabase, jdbcUsername, jdbcPassword)
+
+# COMMAND ----------
+
+print(jdbcUrl)
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC SELECT *
+# MAGIC FROM ds_discovery.kai_test
+# MAGIC LIMIT 5; 
+
+# COMMAND ----------
+
+# MAGIC %sh
+# MAGIC nslookup pr-cdp-redshift-cluster-redshiftcluster-1my0fjq6hipen.ce7njna1uchr.ap-southeast-2.redshift.amazonaws.com
